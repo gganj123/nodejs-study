@@ -28,9 +28,18 @@ async function run() {
   //     { _id: 3, test1: 95, test2: 110, modified: new Date("01/04/2020") },
   //   ]);
   //문제 11-1. id가 3인 학생에게 test3 의 점수를 98로 세팅하자
-  const updateStudent = await students.updateOne(
-    { _id: 3 },
-    { $set: { test3: 98 } }
+  //   const updateStudent = await students.updateOne(
+  //     { _id: 3 },
+  //     { $set: { test3: 98 } }
+  //   );
+  //   console.log(updateStudent);
+  //문제 12. updateMany
+  //모든데이터의 test1의 점수를 0으로 세팅하고 status:"modified"라는 필드를 추가해라
+  const updateStudent = await students.updateMany(
+    {},
+    {
+      $set: { test1: 0, status: "modified" },
+    }
   );
   console.log(updateStudent);
 }
