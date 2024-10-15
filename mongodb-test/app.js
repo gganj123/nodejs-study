@@ -1,0 +1,78 @@
+const { MongoClient } = require("mongodb");
+const uri = `mongodb://localhost:27017`;
+
+const client = new MongoClient(uri);
+
+async function run() {
+  const database = client.db("firstDB");
+  const inventory = database.collection("inventory");
+  //문제4
+  //   const goods = await inventory.insertMany([
+  //     {
+  //       item: "journal",
+  //       qty: 25,
+  //       size: { h: 14, w: 21, uom: "cm" },
+  //       status: "A",
+  //     },
+  //     {
+  //       item: "notebook",
+  //       qty: 50,
+  //       size: { h: 8.5, w: 11, uom: "in" },
+  //       status: "A",
+  //     },
+  //     {
+  //       item: "paper",
+  //       qty: 100,
+  //       size: { h: 8.5, w: 11, uom: "in" },
+  //       status: "D",
+  //     },
+  //     {
+  //       item: "planner",
+  //       qty: 75,
+  //       size: { h: 22.85, w: 30, uom: "cm" },
+  //       status: "D",
+  //     },
+  //     {
+  //       item: "postcard",
+  //       qty: 45,
+  //       size: { h: 10, w: 15.25, uom: "cm" },
+  //       status: "A",
+  //     },
+  //   ]);
+  //   console.log("result", goods);
+  //문제5
+  //   const findGoods = await inventory.find({ status: "D" }).toArray();
+  //   console.log(findGoods);
+
+  
+
+  //   const userData = await users.insertOne({ name: "dony", age: 17 });
+  //   console.log("result", userData);
+
+  //   const userList = [
+  //     { name: "철수", age: 30 },
+  //     { name: "jessica", age: 25 },
+  //   ];
+  //   const userListResult = await users.insertMany(userList);
+  //   console.log("result", userListResult);
+
+  //   const findUser = await users.findOne({ age: { $gt: 20 } });
+  //   console.log("result", findUser);
+
+  //   const UpdateUser = await users.updateOne(
+  //     { name: "dony" },
+  //     { $set: { age: 18 } }
+  //   );
+  //   console.log("result", UpdateUser);
+
+  //   const DeleteUser = await users.deleteOne({ name: "dony" });
+  //   console.log("result", DeleteUser);
+
+  //   const userData = await users
+  //     .find({ age: { $gt: 20 } })
+  //     .project({ name: 1 })
+  //     .toArray();
+  //   console.log("userdata", userData);
+}
+
+run();
