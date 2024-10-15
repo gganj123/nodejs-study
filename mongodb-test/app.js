@@ -45,7 +45,11 @@ async function run() {
   //   console.log(updateStudent);
 
   //문제13. test2점수가 92점인 학생을 삭제하자
-  const deleteStudent = await students.deleteOne({ test2: 92 });
+  //   const deleteStudent = await students.deleteOne({ test2: 92 });
+  //   console.log(deleteStudent);
+
+  //문제 14. deleteMany .test1의 점수가 0인 학생들을 삭제하자
+  const deleteStudent = await students.deleteMany({ test1: 0 });
   console.log(deleteStudent);
 }
 
