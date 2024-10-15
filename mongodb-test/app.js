@@ -73,9 +73,15 @@ async function run() {
   //문제4-2 status가 D인 데이터를 찾아라
   //   const findGoods = await inventory.find({ status: "D" }).toArray();
   //   console.log(findGoods);
-  
+
   //문제5 status가 'A’이고 qty가 50인 데이터를 찾아라
-  const findGoods = await inventory.find({ status: "A", qty: 50 }).toArray();
+  //   const findGoods = await inventory.find({ status: "A", qty: 50 }).toArray();
+  //   console.log(findGoods);
+
+  //문제 6. 쿼리 $in 사용해보기
+  const findGoods = await inventory
+    .find({ status: { $in: ["A", "B"] } })
+    .toArray();
   console.log(findGoods);
 }
 
