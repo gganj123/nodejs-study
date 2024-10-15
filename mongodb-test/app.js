@@ -91,9 +91,14 @@ async function run() {
   //   console.log(findGoods);
 
   //문제 8. $or
-  const findGoods = await inventory
-    .find({ $or: [{ status: "A", qty: { $lt: 30 } }] })
-    .toArray();
+  //   const findGoods = await inventory
+  //     .find({ $or: [{ status: "A", qty: { $lt: 30 } }] })
+  //     .toArray();
+  //   console.log(findGoods);
+
+  // 문제 9. nested field
+  // size 에 uom이 in 인 데이터를 찾자
+  const findGoods = await inventory.find({ "size.uom": "in" }).toArray();
   console.log(findGoods);
 }
 
