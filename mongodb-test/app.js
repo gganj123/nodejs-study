@@ -85,8 +85,14 @@ async function run() {
   //   console.log(findGoods);
 
   //문제 7. $lt
+  //   const findGoods = await inventory
+  //     .find({ status: "A", qty: { $lt: 30 } })
+  //     .toArray();
+  //   console.log(findGoods);
+
+  //문제 8. $or
   const findGoods = await inventory
-    .find({ status: "A", qty: { $lt: 30 } })
+    .find({ $or: [{ status: "A", qty: { $lt: 30 } }] })
     .toArray();
   console.log(findGoods);
 }
