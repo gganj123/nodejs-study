@@ -98,7 +98,11 @@ async function run() {
 
   // 문제 9. nested field
   // size 에 uom이 in 인 데이터를 찾자
-  const findGoods = await inventory.find({ "size.uom": "in" }).toArray();
+  //   const findGoods = await inventory.find({ "size.uom": "in" }).toArray();
+  //   console.log(findGoods);
+
+  //문제 10.size에 h가 10을 초과하는 데이터를 찾자
+  const findGoods = await inventory.find({ "size.h": { $gt: 10 } }).toArray();
   console.log(findGoods);
 }
 
