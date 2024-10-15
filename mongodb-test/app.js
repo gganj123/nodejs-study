@@ -79,8 +79,14 @@ async function run() {
   //   console.log(findGoods);
 
   //문제 6. 쿼리 $in 사용해보기
+  //   const findGoods = await inventory
+  //     .find({ status: { $in: ["A", "B"] } })
+  //     .toArray();
+  //   console.log(findGoods);
+
+  //문제 7. $lt
   const findGoods = await inventory
-    .find({ status: { $in: ["A", "B"] } })
+    .find({ status: "A", qty: { $lt: 30 } })
     .toArray();
   console.log(findGoods);
 }
