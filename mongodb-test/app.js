@@ -33,15 +33,20 @@ async function run() {
   //     { $set: { test3: 98 } }
   //   );
   //   console.log(updateStudent);
+
   //문제 12. updateMany
   //모든데이터의 test1의 점수를 0으로 세팅하고 status:"modified"라는 필드를 추가해라
-  const updateStudent = await students.updateMany(
-    {},
-    {
-      $set: { test1: 0, status: "modified" },
-    }
-  );
-  console.log(updateStudent);
+  //   const updateStudent = await students.updateMany(
+  //     {},
+  //     {
+  //       $set: { test1: 0, status: "modified" },
+  //     }
+  //   );
+  //   console.log(updateStudent);
+
+  //문제13. test2점수가 92점인 학생을 삭제하자
+  const deleteStudent = await students.deleteOne({ test2: 92 });
+  console.log(deleteStudent);
 }
 
 run();
