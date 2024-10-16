@@ -12,7 +12,7 @@ const userSchema = new Schema({
     required: true,
     validate: {
       validator: function (value) {
-        if (!value.includes("@")) throw new Error("This is not an Email");
+        if (!validator.isEmail(value)) throw new Error("This is not an email");
       },
     },
   },
@@ -29,7 +29,7 @@ const User = mongoose.model("User", userSchema);
 
 const newUser = new User({
   name: "dony",
-  email: "zzznj123@gmail.com",
+  email: "zzznj123gmail.com",
   password: "12345",
 });
 
