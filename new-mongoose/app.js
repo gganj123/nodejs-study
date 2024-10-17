@@ -19,18 +19,23 @@ const userSchema = new Schema({
   password: {
     type: String,
     required: true,
+    trim: true,
   },
   age: {
     type: Number,
+    default: 0,
   },
 });
 
 const User = mongoose.model("User", userSchema);
 
-const newUser = new User({
-  name: "dony",
-  email: "zzznj123gmail.com",
-  password: "12345",
-});
+// const newUser = new User({
+//   name: "김철수",
+//   email: "김철수@gmail.com",
+//   password: "       abcgd",
+// });
 
-newUser.save().then((value) => console.log("value is", value));
+// newUser.save().then((value) => console.log("value is", value));
+User.find({ name: "김철수" })
+  .select("name -_id")
+  .then((value) => console.log("all data", value));
